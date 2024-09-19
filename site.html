@@ -3,18 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <title>bushkovsky</title>
 </head>
+
 <body>
 <header style="text-align: center;">
   <h1>Привет, я Ваня</h1>
 </header>
 
-<nav style="text-align: center; margin-top: 40px;" >
-  <button onclick="window.location.href='#about'">Обo мне</button>
-  <button onclick="window.location.href='#projects'">Программирование</button>
-  <button onclick="window.location.href='#photography'">Фотография</button>
-  <button onclick="window.location.href='#ascii-camera'">Крутой фотик</button>
+
+<main style="text-align: center; margin-top: 100px;">
+
+<nav>
+  <ul class="no-bullets">
+    <li><a href="#about">Обо мне</a></li>
+    <li><a href="#projects">Проекты</a></li>
+    <li><a href="#photography">Фотографии</a></li>
+    <li><a href="#ascii-camera">Крутой фотик</a></li>
+  </ul>
 </nav>
 
 <blockquote style="text-align: center; margin-top: 80px;">
@@ -22,14 +29,18 @@
   <cite><a href="https://t.me/kosch71">Константин Чикишев</a></cite>
 </blockquote>
 
-<main style="text-align: center; margin-top: 100px;">
   <article id="about">
     <h2>Обо мне</h2>
-    <p>Я очень крутой. Учусь в итмо на программиста. Как дела?</p>
+    <p>Я очень крутой. Учусь в <i>ИТМО</i> на программиста. Как дела?</p>
+    <p>Люблю фотографировать и <s>кататься</s> тренироваться на велосипеде, ленюсь иногда, иногда не ленюсь</p>
+    <blockquote style="margin-top: 20px">
+      <p>" 80% успеха - это появиться в нужном месте в нужное время."</p>
+      <footer><cite><b>Вуди Аллен</b></cite></footer>
+    </blockquote>
+    <p>Вот такие вот дела, мда</p>
   </article>
 
-  <section id="projects">
-    <div style="display: flow; margin-top:100px">
+  <section id="projects" style="display: flow; margin-top:100px">
     <h2>Программирование</h2>
     <div style="display: flex; justify-content: center; flex-wrap: wrap; gap: 10px; margin-top: 10px;">
       <img src="img/1_dQnbv0c36h6ijsocaRWksQ.png" alt="Проект 1" width="100" height="100" style="background-color: #ddd; border-radius: 5px;">
@@ -42,11 +53,9 @@
     <div style="margin-top: 20px;">
       <a href="https://github.com/bushkovsky" target="_blank" style="text-decoration: none; padding: 10px 20px; background-color: white; color: black; border-radius: 10px; border-color: black;">GitHub URL</a>
     </div>
-    </div>
   </section>
 
-  <section id="photography">
-    <div style="display: flow; margin-top:100px">
+  <section id="photography" style="display: flow; margin-top:100px">
     <h2>Фото</h2>
     <div style="display: flex; justify-content: center; gap: 70px; margin-top: 10px;">
       <img src="img/GB9ckmVzRFE.jpg" alt="Фото 1" width="500" height="500" style="background-color: #ddd; border-radius: 5px;">
@@ -56,12 +65,10 @@
     <div style="margin-top: 20px;">
       <a href="https://vk.com/album143699615_257365192" target="_blank" style="text-decoration: none; padding: 10px 20px; background-color: white; color: black; border-radius: 5px;">Фото URL</a>
     </div>
-    </div>
   </section>
 
 
-<section id="ascii-camera">
-  <div style="display: flex; justify-content: center; align-items: center; flex-direction: column; margin-top: 50px;">
+<section id="ascii-camera" style="display: flex; justify-content: center; align-items: center; flex-direction: column; margin-top: 50px;">
     <h2>Фотоаппарат</h2>
     <pre style="text-align: center;">
   __________¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶
@@ -93,7 +100,6 @@ _¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶
 ¶¶¶_______¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶
 _¶¶¶¶¶¶¶¶¶¶
     </pre>
-  </div>
 </section>
 
   <style>
@@ -107,7 +113,7 @@ _¶¶¶¶¶¶¶¶¶¶
     }
 
     pre.left-aligned {
-      margin: 0; /* Убираем стандартные отступы у pre */
+      margin: 0;
     }
   </style>
 
