@@ -332,3 +332,87 @@ pre {
         display: none;
     }
 }
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    font-size: 1rem;
+    text-align: left;
+}
+
+table th, table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+table th {
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+
+.table-wrapper {
+    max-width: 100%;
+    overflow-x: auto;
+}
+
+.table {
+    display: grid;
+    grid-auto-flow: row;
+    gap: 1px;
+    background-color: #ddd;
+    border: 1px solid #ccc;
+    text-align: center;
+    min-width: 600px;
+}
+
+.table-row-wrapper {
+    display: contents; /* Позволяет гриду правильно располагать элементы */
+}
+
+.table-header {
+    font-weight: bold;
+    font-size: 1rem;
+    background-color: #666;
+    color: white;
+    padding: 8px;
+}
+
+/* Общие стили для таблицы */
+.styled-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    font-size: 1rem;
+    text-align: left;
+    border: 1px solid #ddd;
+}
+
+.styled-table thead tr {
+    background-color: #4A90E2;
+    color: white;
+    text-align: center;
+}
+
+.styled-table th,
+.styled-table td {
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+}
+
+.styled-table tbody tr:nth-child(odd) {
+    background-color: #f9f9f9;
+}
+
+.styled-table tbody tr:nth-child(even) {
+    background-color: #f4f4f4;
+}
+
+.styled-table tbody tr:hover {
+    background-color: #f1f1f1;
+}
+
+
+
+
