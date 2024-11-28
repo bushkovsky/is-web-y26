@@ -4,9 +4,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const saveButton = document.getElementById('saveSettings');
     const loadButton = document.getElementById('loadSettings');
 
-    const invitations = []; // Массив для хранения данных приглашений
+    const invitations = []; // массив для приглашений
 
-    // Генерация таблицы
+    // Генерация таб
     function generateTable() {
         tableContainer.innerHTML = ''; // Очистить контейнер
 
@@ -91,7 +91,4 @@ document.addEventListener('DOMContentLoaded', () => {
             alert('Нет сохранённых приглашений.');
         }
     });
-
-    // Инициализация пустой таблицы
-    generateTable();
 });
