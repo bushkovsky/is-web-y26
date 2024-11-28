@@ -1,0 +1,169 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #f4f4f8;
+    color: #090909;
+    line-height: 1.6;
+    padding: 0px;
+}
+
+h1, h2 {
+    font-family: 'Roboto', sans-serif;
+    font-weight: initial;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: #4A90E2;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+h1 {
+    font-size: 3rem;
+}
+
+h2 {
+    font-size: 2rem;
+}
+
+p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: #555;
+    margin-bottom: 20px;
+    text-align: justify;
+}
+
+main {
+    padding: 100px;
+}
+
+blockquote {
+    font-size: 1.2rem;
+    font-style: italic;
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-left: 5px solid #4A90E2;
+    margin: 20px 0;
+    margin-top: 80px;
+    line-height: 1.5;
+    color: #555;
+}
+
+cite {
+    font-size: 1rem;
+    color: #4A90E2;
+}
+
+cite a {
+    color: inherit;
+}
+
+cite a:hover {
+    text-decoration: underline;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+nav ul li {
+    margin-right: 0;
+}
+
+nav ul li a {
+    font-size: 1.2rem;
+    text-decoration: none;
+    font-weight: bold;
+    color: #4A90E2;
+    padding: 10px 15px; /* Добавляем отступы для создания кнопок */
+    border-radius: 5px; /* Округляем углы */
+    background-color: white; /* Добавляем фон */
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+nav ul li a:hover {
+    background-color: #4A90E2; /* Меняем фон при наведении */
+    color: white; /* Меняем цвет текста на белый */
+}
+
+nav ul li a:hover {
+    text-decoration: underline;
+}
+
+img {
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+img:hover {
+    transform: scale(1.05);
+}
+
+.image-gallery {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+a {
+    color: #4A90E2;
+    font-weight: bold;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+a.button {
+    background-color: #6ea8cf;
+    color: #121a20;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-align: center;
+    display: inline-block;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+a.button:hover {
+    background-color: #4A90E2;
+    color: #655f5f;
+}
+
+pre {
+    background-color: #333;
+    color: #f4f4f9;
+    padding: 20px;
+    border-radius: 10px;
+    font-family: 'Roboto', sans-serif;
+    font-size: 1rem;
+    line-height: 1.5;
+}
+
+.centered-text {
+    width: 70%;
+    margin: 0 auto;
+    text-align: center;
+}
+
+footer p {
+    color: #638298;
+    font-size: 0.9rem;
+    margin: 20px 0;
+    padding-top: 10px;
+    border-top: 1px solid #000000;
+    text-align: center;
+}
