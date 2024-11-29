@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Приглашения на встречу</title>
+  <script defer src="/js/constructor.js"></script>
+</head>
+
+<body>
+<div class="wrapper">
+  <header>
+    <h1>Приглашения на встречу</h1>
+    <nav>
+      <ul class="no-bullets">
+        <li><a href="site.html">Обо мне</a></li>
+        <li><a href="projects.html">Проекты</a></li>
+        <li class="as-desktop"><a href="photography.html">Фотографии</a></li>
+        <li><a href="table.html">Таблица</a></li>
+        <li><a href="constructor.html">Конструктор</a></li>
+      </ul>
+    </nav>
+  </header>
+  <main>
+    <section>
+      <h2>Создание приглашения</h2>
+      <form id="tableForm">
+        <label>
+          Название встречи:
+          <input type="text" id="meetingTitle" required />
+        </label>
+        <label>
+          Причина встречи:
+          <select id="meetingReason" required>
+            <option value="досуг">Досуг</option>
+            <option value="есть дело">Есть дело</option>
+            <option value="объясни">Объясни, пожалуйста</option>
+            <option value="секрет">Секрет</option>
+          </select>
+        </label>
+        <label>
+          Дата встречи:
+          <input type="date" id="meetingDate" required />
+        </label>
+        <label>
+          Место встречи:
+          <input type="text" id="meetingPlace" required />
+        </label>
+        <label>
+          От кого:
+          <input type="text" id="meetingFrom" required />
+        </label>
+        <button type="submit">Добавить приглашение</button>
+        <button type="button" id="saveSettings">Сохранить приглашения</button>
+        <button type="button" id="loadSettings">Загрузить приглашения</button>
+      </form>
+      <div id="tableContainer" class="table-wrapper"></div>
+    </section>
+  </main>
+  <footer>
+    <p>bushkovsky Inc. Никаких прав нет, ничего не защищено</p>
+  </footer>
+</div>
+</body>
+
+</html>
