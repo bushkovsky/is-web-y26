@@ -1,5 +1,6 @@
 (function () {
     function timeToLoadJs() {
+        console.log("Пмир!");
         let startTime = performance.now();
 
         window.addEventListener('load', function () {
@@ -22,20 +23,27 @@
     };
 
     function checkActiveMenu() {
-        const currentPath = document.location.pathname.replace(/^\/|\/$/g, '');
+        console.log("Привет, мир!");
+        const currentPath = document.location.pathname.split('/').pop();
+        console.log("Текущий путь:", currentPath);
+
         const menuItems = document.querySelectorAll('header nav li');
-    
+
         menuItems.forEach(item => {
-            const link = item.querySelector('a').getAttribute('href');
-            console.log(link, currentPath)
+            const link = item.querySelector('a').getAttribute('href').split('/').pop();
+            console.log("Сравнение:", link, currentPath);
+
             if (link === currentPath) {
                 item.classList.add('js-active');
+            } else {
+                item.classList.remove('js-active');
             }
         });
-    };
+    }
 
-    
+
+
     timeToLoadJs();
-    checkActiveMenu();
+    //checkActiveMenu();
 
 })();
