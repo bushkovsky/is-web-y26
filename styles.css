@@ -277,7 +277,6 @@ pre {
     overflow-x: auto;
     margin: 20px 0;
 }
-/* */
 
 table {
     width: 100%;
@@ -288,30 +287,47 @@ table {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-thead th {
+thead {
+    display: grid; /* Применяем Grid */
+    grid-template-columns: repeat(5, 1fr); /* 5 колонок */
     background-color: #666;
     color: #ffffff;
     font-weight: bold;
+    text-align: center;
+}
+
+thead tr {
+    display: contents; /* Убираем лишний контейнер */
+}
+
+thead .title {
+    grid-column: span 5; /* Растягиваем заголовок на 5 колонок */
+    font-size: 1.5rem;
     padding: 10px;
-    text-transform: uppercase;
+    border-bottom: 2px solid #cccccc;
+}
+
+
+thead .sub-header {
+    font-size: 1rem;
+    padding: 8px;
     border: 1px solid #cccccc;
 }
 
-thead th.title {
-    font-size: 1.2rem;
-    text-align: center;
-    border-bottom: 2px solid #cccccc;
+tbody {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-auto-rows: auto;
+}
+
+tbody tr {
+    display: contents;
 }
 
 tbody td, tbody th {
     padding: 10px;
     border: 1px solid #cccccc;
-}
-
-tbody th {
-    background-color: #f4f4f8;
-    font-weight: bold;
-    color: #333;
+    text-align: center;
 }
 
 tbody tr:nth-child(odd) {
