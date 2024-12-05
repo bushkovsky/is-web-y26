@@ -288,8 +288,8 @@ table {
 }
 
 thead {
-    display: grid; /* Применяем Grid */
-    grid-template-columns: repeat(5, 1fr); /* 5 колонок */
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
     background-color: #666;
     color: #ffffff;
     font-weight: bold;
@@ -297,11 +297,11 @@ thead {
 }
 
 thead tr {
-    display: contents; /* Убираем лишний контейнер */
+    display: contents;
 }
 
 thead .title {
-    grid-column: span 5; /* Растягиваем заголовок на 5 колонок */
+    grid-column: span 5;
     font-size: 1.5rem;
     padding: 10px;
     border-bottom: 2px solid #cccccc;
