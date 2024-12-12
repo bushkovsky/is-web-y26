@@ -395,3 +395,55 @@ footer {
     color: red;
     font-weight: bold;
 }
+
+
+.swiper-container {
+    width: 100%;
+    max-width: 800px;
+    margin: 20px auto;
+}
+
+.swiper-slide img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+}
+
+.swiper-button-prev,
+.swiper-button-next {
+    color: #333;
+}
+
+.swiper-pagination-bullet {
+    background-color: #666;
+}
+
+.custom-navigation {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.custom-navigation button {
+    padding: 10px 20px;
+    margin: 0 10px;
+    font-size: 16px;
+    background-color: #333;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.custom-navigation button:hover {
+    background-color: #555;
+}
+
+.swiper-container {
+    overflow: hidden; /* Предотвращаем "вылет" контента */
+    max-height: 200px; /* Ограничиваем высоту */
+}
+body {
+    overscroll-behavior: none; /* Отключение скролла страницы на мобильных */
+}
+
