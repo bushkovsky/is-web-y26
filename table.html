@@ -3,7 +3,7 @@
 
 <head>
   <script src="js/script.js"></script>
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="style.css">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -22,6 +22,7 @@
           <li class="as-desktop"><a href="photography.html">Фотографии</a></li>
           <li><a href="table.html">Таблица</a></li>
           <li><a href="ascii-camera.html">Крутой фотик</a></li>
+          <li><a href="constructor.html">Конструктор</a></li>
         </ul>
       </nav>
     </header>
@@ -29,43 +30,43 @@
       <section id="table">
         <h2>Таблица</h2>
         <div class="table-wrapper">
-          <div class="table">
-            <div class="table-row-wrapper">
-              <div class="table-header title" colspan="5">Random information</div>
-            </div>
-
-            <div class="table-row-wrapper">
-              <div class="table-header sub-header">expense table</div>
-              <div class="table-header sub-header">1 week</div>
-              <div class="table-header sub-header">2 week</div>
-              <div class="table-header sub-header">3 week</div>
-              <div class="table-header sub-header">4 week</div>
-            </div>
-
-            <div class="table-row-wrapper">
-              <div class="row-label">food</div>
-              <div class="table-row">156,508.00</div>
-              <div class="table-row">108,249.00</div>
-              <div class="table-row">65,225.00</div>
-              <div class="table-row">42,905.00</div>
-            </div>
-
-            <div class="table-row-wrapper">
-              <div class="row-label">bad habits</div>
-              <div class="table-row">-</div>
-              <div class="table-row">-</div>
-              <div class="table-row">10.00</div>
-              <div class="table-row">-</div>
-            </div>
-
-            <div class="table-row-wrapper">
-              <div class="row-label">taxi</div>
-              <div class="table-row">2,000.00</div>
-              <div class="table-row">5,121.00</div>
-              <div class="table-row">-</div>
-              <div class="table-row">-</div>
-            </div>
-          </div>
+          <table>
+            <thead>
+            <tr>
+              <th colspan="5" class="title">Random information</th>
+            </tr>
+            <tr>
+              <th class="sub-header">Expense Table</th>
+              <th class="sub-header">1 Week</th>
+              <th class="sub-header">2 Week</th>
+              <th class="sub-header">3 Week</th>
+              <th class="sub-header">4 Week</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+              <td class="row-label">Food</td>
+              <td>156,508.00</td>
+              <td>108,249.00</td>
+              <td>65,225.00</td>
+              <td>42,905.00</td>
+            </tr>
+            <tr>
+              <td class="row-label">Bad Habits</td>
+              <td>-</td>
+              <td>-</td>
+              <td>10.00</td>
+              <td>-</td>
+            </tr>
+            <tr>
+              <td class="row-label">Taxi</td>
+              <td>2,000.00</td>
+              <td>5,121.00</td>
+              <td>-</td>
+              <td>-</td>
+            </tr>
+            </tbody>
+          </table>
         </div>
       </section>
     </main>

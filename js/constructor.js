@@ -1,94 +1,102 @@
 document.addEventListener('DOMContentLoaded', () => {
     const form = document.getElementById('tableForm');
+    const tableBody = document.getElementById('tableBody');
+    const rowTemplate = document.getElementById('rowTemplate');
     const tableContainer = document.getElementById('tableContainer');
-    const saveButton = document.getElementById('saveSettings');
-    const loadButton = document.getElementById('loadSettings');
+    let invitations = JSON.parse(localStorage.getItem('invitations')) || [];
 
-    const invitations = []; // массив для приглашений
+    function saveToLocal() {
+        localStorage.setItem('invitations', JSON.stringify(invitations));
+    }
 
-    // Генерация таб
     function generateTable() {
-        tableContainer.innerHTML = ''; // Очистить контейнер
+        tableBody.innerHTML = '';
 
-        if (invitations.length === 0) {
-            tableContainer.textContent = 'Пока нет приглашений.';
+        // Скрыть таблицу, если массив invitations пуст или содержит только пустую запись
+        const hasValidInvitations = invitations.some(invitation =>
+            invitation.title || invitation.reason || invitation.date || invitation.place || invitation.from
+        );
+
+        if (!hasValidInvitations) {
+            tableContainer.style.display = 'none';
             return;
         }
 
-        // Создать таблицу
-        const table = document.createElement('table');
-        table.classList.add('styled-table'); // Класс для стилей
+        tableContainer.style.display = 'block';
 
-        // Создать заголовок таблицы
-        const thead = document.createElement('thead');
-        const headerRow = document.createElement('tr');
-        ['Номер', 'Название встречи', 'Причина встречи', 'Дата', 'Место встречи', 'От кого'].forEach((header) => {
-            const th = document.createElement('th');
-            th.textContent = header;
-            headerRow.appendChild(th);
-        });
-        thead.appendChild(headerRow);
-        table.appendChild(thead);
-
-        // Создать тело таблицы
-        const tbody = document.createElement('tbody');
         invitations.forEach((invitation, index) => {
-            const row = document.createElement('tr');
+            if (!invitation.title && !invitation.reason && !invitation.date && !invitation.place && !invitation.from) {
+                // Пропустить записи с пустыми полями
+                return;
+            }
 
-            const cells = [
-                index + 1, // Номер
-                invitation.title, // Название встречи
-                invitation.reason, // Причина встречи
-                invitation.date, // Дата
-                invitation.place, // Место встречи
-                invitation.from, // От кого
-            ];
+            const row = rowTemplate.content.cloneNode(true);
 
-            cells.forEach((cellData) => {
-                const td = document.createElement('td');
-                td.textContent = cellData;
-                row.appendChild(td);
-            });
+            row.querySelector('.number').textContent = index + 1;
+            row.querySelector('.title').textContent = invitation.title;
+            row.querySelector('.reason').textContent = invitation.reason;
+            row.querySelector('.date').textContent = invitation.date;
+            row.querySelector('.place').textContent = invitation.place;
+            row.querySelector('.from').textContent = invitation.from;
 
-            tbody.appendChild(row);
+            const deleteButton = row.querySelector('.delete-button');
+            deleteButton.setAttribute('data-index', index);
+            deleteButton.addEventListener('click', deleteEntry);
+
+            tableBody.appendChild(row);
         });
-        table.appendChild(tbody);
-
-        tableContainer.appendChild(table);
     }
 
 
-    // Обработка отправки формы
-    form.addEventListener('submit', (event) => {
+    function deleteEntry(event) {
+        const index = event.target.getAttribute('data-index');
+        invitations.splice(index, 1);
+        saveToLocal();
+        generateTable();
+    }
+
+    form.addEventListener('submit', event => {
         event.preventDefault();
 
-        const title = document.getElementById('meetingTitle').value;
+        // Получение данных через document.getElementById
+        const title = document.getElementById('meetingTitle').value.trim();
         const reason = document.getElementById('meetingReason').value;
         const date = document.getElementById('meetingDate').value;
-        const place = document.getElementById('meetingPlace').value;
-        const from = document.getElementById('meetingFrom').value;
+        const place = document.getElementById('meetingPlace').value.trim();
+        const from = document.getElementById('meetingFrom').value.trim();
 
-        invitations.push({ title, reason, date, place, from }); // Добавить новое приглашение
-        generateTable(); // Обновить таблицу
-        form.reset(); // Сбросить форму
-    });
+        // Регулярное выражение для проверки текста
+        const letterOnlyRegex = /^[A-Za-z\s-]+$/;
 
-    // Сохранение данных в LocalStorage
-    saveButton.addEventListener('click', () => {
-        localStorage.setItem('invitations', JSON.stringify(invitations));
-        alert('Приглашения сохранены!');
-    });
-
-    // Загрузка данных из LocalStorage
-    loadButton.addEventListener('click', () => {
-        const savedInvitations = JSON.parse(localStorage.getItem('invitations'));
-        if (savedInvitations) {
-            invitations.length = 0; // Очистить текущие данные
-            invitations.push(...savedInvitations); // Добавить данные из LocalStorage
-            generateTable(); // Обновить таблицу
-            alert('Приглашения загружены!');
-        } else {
-            alert('Нет сохранённых приглашений.');
+        // Валидация полей
+        if (!title || !letterOnlyRegex.test(title)) {
+            alert('Название встречи может содержать только латинские буквы, пробелы или дефисы.');
+            return;
         }
+        if (!place || !letterOnlyRegex.test(place)) {
+            alert('Место встречи может содержать только латинские буквы, пробелы или дефисы.');
+            return;
+        }
+        if (!from || !letterOnlyRegex.test(from)) {
+            alert('Поле "От кого" может содержать только латинские буквы, пробелы или дефисы.');
+            return;
+        }
+        if (!reason) {
+            alert('Выберите причину встречи.');
+            return;
+        }
+        if (!date) {
+            alert('Выберите дату встречи.');
+            return;
+        }
+
+        const invitation = { title, reason, date, place, from };
+        invitations.push(invitation);
+
+        saveToLocal();
+        generateTable();
+        form.reset();
     });
+
+    generateTable();
 });

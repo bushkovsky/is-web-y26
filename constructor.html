@@ -3,11 +3,11 @@
 
 <head>
   <script src="js/script.js"></script>
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="style.css">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Приглашения на встречу</title>
-  <script defer src="js/constructor.js"></script>
+  <script src="js/constructor.js"></script>
 </head>
 
 <body>
@@ -20,6 +20,7 @@
         <li><a href="projects.html">Проекты</a></li>
         <li class="as-desktop"><a href="photography.html">Фотографии</a></li>
         <li><a href="table.html">Таблица</a></li>
+        <li><a href="ascii-camera.html">Крутой фотик</a></li>
         <li><a href="constructor.html">Конструктор</a></li>
       </ul>
     </nav>
@@ -54,16 +55,47 @@
           <input type="text" id="meetingFrom" required />
         </label>
         <button type="submit">Добавить приглашение</button>
-        <button type="button" id="saveSettings">Сохранить приглашения</button>
-        <button type="button" id="loadSettings">Загрузить приглашения</button>
       </form>
-      <div id="tableContainer" class="table-wrapper"></div>
+      <div id="tableContainer" class="table-wrapper" style="display: none;">
+        <table class="styled-table">
+          <thead>
+          <tr>
+            <th colspan="7" class="title">Встречи</th>
+          </tr>
+          <tr>
+            <th>Номер</th>
+            <th>Название встречи</th>
+            <th>Причина встречи</th>
+            <th>Дата</th>
+            <th>Место встречи</th>
+            <th>От кого</th>
+            <th>Действия</th>
+          </tr>
+          </thead>
+          <tbody id="tableBody"></tbody>
+        </table>
+        <template id="rowTemplate">
+          <tr>
+            <td class="number"></td>
+            <td class="title"></td>
+            <td class="reason"></td>
+            <td class="date"></td>
+            <td class="place"></td>
+            <td class="from"></td>
+            <td>
+              <button class="delete-button">Удалить</button>
+            </td>
+          </tr>
+        </template>
+      </div>
+
     </section>
   </main>
   <footer>
     <p>bushkovsky Inc. Никаких прав нет, ничего не защищено</p>
   </footer>
 </div>
+
 </body>
 
 </html>
