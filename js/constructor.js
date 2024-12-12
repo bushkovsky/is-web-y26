@@ -98,5 +98,13 @@ document.addEventListener('DOMContentLoaded', () => {
         form.reset();
     });
 
+    // Слушаем изменения в localStorage
+    window.addEventListener('storage', event => {
+        if (event.key === 'invitations') {
+            invitations = JSON.parse(event.newValue) || [];
+            generateTable();
+        }
+    });
+
     generateTable();
 });
