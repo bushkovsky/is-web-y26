@@ -49,11 +49,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
     function deleteEntry(event) {
+        invitations = JSON.parse(localStorage.getItem('invitations')) || [];
+
         const index = event.target.getAttribute('data-index');
         invitations.splice(index, 1);
+
         saveToLocal();
         generateTable();
     }
+
 
     form.addEventListener('submit', event => {
         event.preventDefault();
