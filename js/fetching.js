@@ -48,9 +48,9 @@ document.addEventListener("DOMContentLoaded", () => {
                 if (comments.length > 0) {
                     comments.forEach(comment => {
                         const commentElement = commentTemplate.cloneNode(true);
-                        commentElement.querySelector("strong").textContent = comment.name; // Имя пользователя
-                        commentElement.querySelector(".email").textContent = comment.email; // Email
-                        commentElement.querySelector(".body").textContent = comment.body;  // Текст комментария
+                        commentElement.querySelector("strong").textContent = comment.name;
+                        commentElement.querySelector(".email").textContent = comment.email;
+                        commentElement.querySelector(".body").textContent = comment.body;
 
                         commentsContainer.appendChild(commentElement);
                     });
@@ -75,6 +75,6 @@ document.addEventListener("DOMContentLoaded", () => {
         gallery.appendChild(errorElement);
     }
 
-    // Имитация асинхронной загрузки данных
-    setTimeout(displayPhotos, 2000);
+    displayPhotos()
+
 });
