@@ -2,6 +2,10 @@ document.addEventListener("DOMContentLoaded", () => {
     const preloader = document.getElementById("preloader");
     const gallery = document.getElementById("gallery");
 
+    // Получение шаблонов
+    const photoTemplate = document.getElementById("photo-template").content;
+    const commentTemplate = document.getElementById("comment-template").content;
+
     const photos = [
         { id: 1, imageUrl: "img/GB9ckmVzRFE.jpg" },
         { id: 2, imageUrl: "img/SCyVVm13iSE.jpg" },
@@ -10,8 +14,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Функция загрузки комментариев
     const fetchComments = async (photoId) => {
-        const randomFilter = Math.random() > 0.5 ? "?id_gte=100" : "?id_lte=100";
-        const endpoint = `https://jsonplaceholder.typicode.com/comments${randomFilter}`;
+        const endpoint = `https://jsonplaceholder.typicode.com/comments?postId=${photoId}`;
         try {
             const response = await fetch(endpoint);
             if (!response.ok) {
@@ -19,7 +22,7 @@ document.addEventListener("DOMContentLoaded", () => {
             }
 
             const comments = await response.json();
-            return comments.filter(comment => comment.postId % 10 === photoId);
+            return comments;
         } catch (error) {
             console.error(error);
             return [];
@@ -29,41 +32,33 @@ document.addEventListener("DOMContentLoaded", () => {
     // Функция отображения фотографий с комментариями
     const displayPhotos = async () => {
         try {
-            preloader.style.display = "block";
-            gallery.style.display = "none";
+            gallery.innerHTML = ""; // Очистка галереи перед заполнением
 
             for (const photo of photos) {
-                const photoContainer = document.createElement("div");
-                photoContainer.className = "photo-container";
 
-                const img = document.createElement("img");
-                img.src = photo.imageUrl;
-                img.alt = `Фото ${photo.id}`;
-                img.width = 500;
-                img.height = 500;
+                const photoElement = photoTemplate.cloneNode(true);
+                const imgElement = photoElement.querySelector("img");
+                const commentsContainer = photoElement.querySelector(".comments-container");
 
-                photoContainer.appendChild(img);
+                imgElement.src = photo.imageUrl;
+                imgElement.alt = `Фото ${photo.id}`;
 
+                // Загружаем комментарии
                 const comments = await fetchComments(photo.id);
                 if (comments.length > 0) {
                     comments.forEach(comment => {
-                        const commentElement = document.createElement("div");
-                        commentElement.className = "comment";
-                        commentElement.innerHTML = `
-                            <div><strong>${comment.name}</strong></div>
-                            <div>${comment.email}</div>
-                            <div>${comment.body}</div>
-                        `;
-                        photoContainer.appendChild(commentElement);
+                        const commentElement = commentTemplate.cloneNode(true);
+                        commentElement.querySelector("strong").textContent = comment.name; // Имя пользователя
+                        commentElement.querySelector(".email").textContent = comment.email; // Email
+                        commentElement.querySelector(".body").textContent = comment.body;  // Текст комментария
+
+                        commentsContainer.appendChild(commentElement);
                     });
                 } else {
-                    const noCommentsElement = document.createElement("div");
-                    noCommentsElement.className = "no-comments";
-                    noCommentsElement.textContent = "Комментариев нет";
-                    photoContainer.appendChild(noCommentsElement);
+                    commentsContainer.innerHTML = '<div class="no-comments">Комментариев нет</div>';
                 }
 
-                gallery.appendChild(photoContainer);
+                gallery.appendChild(photoElement);
             }
         } catch (error) {
             displayError("⚠ Что-то пошло не так при загрузке фотографий.");

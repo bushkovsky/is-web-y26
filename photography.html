@@ -2,8 +2,8 @@
 <html lang="ru">
 
 <head>
-  <script src="js/script.js"></script>
-  <script src="js/fetching.js"></script>
+  <script src="js/script.js" defer></script>
+  <script src="js/fetching.js" defer></script>
   <link rel="stylesheet" href="style.css">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -39,6 +39,23 @@
   <footer>
     <p>bushkovsky Inc. Никаких прав нет, ничего не защищено</p>
   </footer>
+
+  <!-- фото -->
+  <template id="photo-template">
+    <div class="photo-container">
+      <img src="" alt="" width="500" height="500">
+      <div class="comments-container"></div>
+    </div>
+  </template>
+
+  <!-- коммы-->
+  <template id="comment-template">
+    <div class="comment">
+      <div><strong></strong></div>
+      <div class="email"></div>
+      <div class="body"></div>
+    </div>
+  </template>
 </div>
 </body>
 
