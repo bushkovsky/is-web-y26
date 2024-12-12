@@ -69,10 +69,8 @@ document.addEventListener('DOMContentLoaded', () => {
         const place = document.getElementById('meetingPlace').value.trim();
         const from = document.getElementById('meetingFrom').value.trim();
 
-        // Регулярное выражение для проверки текста
         const letterOnlyRegex = /^[A-Za-z\s-]+$/;
 
-        // Валидация полей
         if (!title || !letterOnlyRegex.test(title)) {
             alert('Название встречи может содержать только латинские буквы, пробелы или дефисы.');
             return;

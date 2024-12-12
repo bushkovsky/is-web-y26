@@ -440,10 +440,10 @@ footer {
 }
 
 .swiper-container {
-    overflow: hidden; /* Предотвращаем "вылет" контента */
-    max-height: 200px; /* Ограничиваем высоту */
+    overflow: hidden;
+    max-height: 200px;
 }
 body {
-    overscroll-behavior: none; /* Отключение скролла страницы на мобильных */
+    overscroll-behavior: none;
 }
 
